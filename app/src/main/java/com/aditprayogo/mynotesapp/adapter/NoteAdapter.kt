@@ -48,12 +48,10 @@ class NoteAdapter(private val activity: Activity) : RecyclerView.Adapter<NoteAda
                 cv_item_note.setOnClickListener(CustomOnItemClickListener(adapterPosition, object :
                     CustomOnItemClickListener.OnItemClickCallback {
                     override fun onItemClicked(view: View, position: Int) {
-
                         val intent = Intent(activity, NoteAddUpdateActivity::class.java)
                         intent.putExtra(NoteAddUpdateActivity.EXTRA_POSITION, position)
                         intent.putExtra(NoteAddUpdateActivity.EXTRA_NOTE, note)
                         activity.startActivityForResult(intent, NoteAddUpdateActivity.REQUEST_UPDATE)
-
                     }
                 }))
 

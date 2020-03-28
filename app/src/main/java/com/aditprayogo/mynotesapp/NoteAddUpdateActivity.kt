@@ -144,6 +144,7 @@ class NoteAddUpdateActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         when(v.id) {
             R.id.btn_submit -> {
+
                 val title = edt_title.text.toString().trim()
                 val description = edt_description.text.toString().trim()
 
@@ -170,7 +171,6 @@ class NoteAddUpdateActivity : AppCompatActivity(), View.OnClickListener {
                     }else {
                         Toast.makeText(this, "Gagal mengupdate data", Toast.LENGTH_SHORT).show()
                     }
-
                 } else {
                     note?.date = getCurrentDate()
                     values.put(DATE, getCurrentDate())

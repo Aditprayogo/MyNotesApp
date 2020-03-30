@@ -1,4 +1,4 @@
-package com.aditprayogo.mynotesapp
+package com.aditprayogo.cunsumerapp
 
 import android.content.Intent
 import android.database.ContentObserver
@@ -8,11 +8,10 @@ import android.os.HandlerThread
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.aditprayogo.mynotesapp.adapter.NoteAdapter
-import com.aditprayogo.mynotesapp.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
-import com.aditprayogo.mynotesapp.db.NoteHelper
-import com.aditprayogo.mynotesapp.entity.Note
-import com.aditprayogo.mynotesapp.helper.MappingHelper
+import com.aditprayogo.cunsumerapp.adapter.NoteAdapter
+import com.aditprayogo.cunsumerapp.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
+import com.aditprayogo.cunsumerapp.entity.Note
+import com.aditprayogo.cunsumerapp.helper.MappingHelper
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Dispatchers
@@ -27,13 +26,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private lateinit var adapter: NoteAdapter
-    private lateinit var noteHelper: NoteHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportActionBar?.title = "Notes"
+        supportActionBar?.title = "Consumer Notes"
 
         rv_notes.layoutManager = LinearLayoutManager(this)
         rv_notes.setHasFixedSize(true)
@@ -72,7 +70,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             progressBar.visibility = View.VISIBLE
             val deferredNotes = async(Dispatchers.IO) {
 
-                val cursor = contentResolver?.query(CONTENT_URI,
+                val cursor = contentResolver?.query(
+                    CONTENT_URI,
                     null, null, null, null)
 
                 MappingHelper.mapCursorToArrayList(cursor)
@@ -95,7 +94,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onDestroy() {
         super.onDestroy()
-        noteHelper.close()
     }
 
     override fun onClick(v: View) {

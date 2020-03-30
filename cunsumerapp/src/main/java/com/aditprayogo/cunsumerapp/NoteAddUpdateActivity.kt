@@ -1,22 +1,19 @@
-package com.aditprayogo.mynotesapp
-
+package com.aditprayogo.cunsumerapp
 import android.content.ContentValues
-import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.aditprayogo.mynotesapp.db.DatabaseContract
-import com.aditprayogo.mynotesapp.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
-import com.aditprayogo.mynotesapp.db.DatabaseContract.NoteColumns.Companion.DATE
-import com.aditprayogo.mynotesapp.db.NoteHelper
-import com.aditprayogo.mynotesapp.entity.Note
-import com.aditprayogo.mynotesapp.helper.MappingHelper
+import androidx.appcompat.app.AppCompatActivity
+import com.aditprayogo.cunsumerapp.R
+import com.aditprayogo.cunsumerapp.db.DatabaseContract
+import com.aditprayogo.cunsumerapp.db.DatabaseContract.NoteColumns.Companion.CONTENT_URI
+import com.aditprayogo.cunsumerapp.db.DatabaseContract.NoteColumns.Companion.DATE
+import com.aditprayogo.cunsumerapp.entity.Note
+import com.aditprayogo.cunsumerapp.helper.MappingHelper
 import kotlinx.android.synthetic.main.activity_note_add_update.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -25,7 +22,6 @@ class NoteAddUpdateActivity : AppCompatActivity(), View.OnClickListener {
     private var isEdit = false
     private var note: Note? = null
     private var position: Int? = 0
-    private lateinit var noteHelper: NoteHelper
     private lateinit var uriWithId : Uri
 
     companion object {

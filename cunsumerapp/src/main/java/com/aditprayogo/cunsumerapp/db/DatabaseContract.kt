@@ -1,4 +1,4 @@
-package com.aditprayogo.mynotesapp.db
+package com.aditprayogo.cunsumerapp.db
 
 import android.net.Uri
 import android.provider.BaseColumns

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.aditprayogo.mynotesapp">
 
+    <permission android:name="com.aditprayogo.mynotesapp.READ_DATABASE" android:protectionLevel="normal"/>
+    <permission android:name="com.aditprayogo.mynotesapp.WRITE_DATABASE" android:protectionLevel="normal"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +16,10 @@
             android:name=".provider.NoteProvider"
             android:authorities="com.aditprayogo.mynotesapp"
             android:enabled="true"
-            android:exported="true"></provider>
+            android:exported="true"
+            android:readPermission="com.aditprayogo.mynotesapp.READ_DATABASE"
+            android:writePermission="com.aditprayogo.mynotesapp.WRITE_DATABASE" >
+        </provider>
 
         <activity android:name=".NoteAddUpdateActivity" />
         <activity android:name=".MainActivity">

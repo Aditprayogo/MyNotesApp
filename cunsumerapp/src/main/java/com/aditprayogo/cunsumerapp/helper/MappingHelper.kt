@@ -1,10 +1,8 @@
-package com.aditprayogo.mynotesapp.helper
+package com.aditprayogo.cunsumerapp.helper
 
 import android.database.Cursor
-import android.provider.ContactsContract
-import com.aditprayogo.mynotesapp.db.DatabaseContract
-import com.aditprayogo.mynotesapp.entity.Note
-import java.lang.reflect.Array.getInt
+import com.aditprayogo.cunsumerapp.db.DatabaseContract
+import com.aditprayogo.cunsumerapp.entity.Note
 
 /*
  class membantu untuk translate dari object cursor menjadi array list
